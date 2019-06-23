@@ -10,8 +10,9 @@ import com.elsonji.weather.data.db.entity.CurrentWeatherEntry
 abstract class ForecastDatabase : RoomDatabase() {
     abstract fun currentWeatherDao(): CurrentWeatherDao
 
-    companion object{
-        @Volatile private var instance: ForecastDatabase? = null
+    companion object {
+        @Volatile
+        private var instance: ForecastDatabase? = null
         private val LOCK = Any()
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
@@ -19,8 +20,10 @@ abstract class ForecastDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext,
-                ForecastDatabase::class.java, "futureWeatherEntries.db")
+            Room.databaseBuilder(
+                context.applicationContext,
+                ForecastDatabase::class.java, "futureWeatherEntries.db"
+            )
                 .build()
     }
 }
