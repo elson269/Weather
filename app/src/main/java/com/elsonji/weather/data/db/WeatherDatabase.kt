@@ -7,12 +7,12 @@ import androidx.room.RoomDatabase
 import com.elsonji.weather.data.db.entity.CurrentWeatherEntry
 
 @Database(entities = [CurrentWeatherEntry::class], version = 1)
-abstract class ForecastDatabase : RoomDatabase() {
+abstract class WeatherDatabase : RoomDatabase() {
     abstract fun currentWeatherDao(): CurrentWeatherDao
 
     companion object {
         @Volatile
-        private var instance: ForecastDatabase? = null
+        private var instance: WeatherDatabase? = null
         private val LOCK = Any()
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
@@ -22,7 +22,7 @@ abstract class ForecastDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
-                ForecastDatabase::class.java, "futureWeatherEntries.db"
+                WeatherDatabase::class.java, "futureWeatherEntries.db"
             )
                 .build()
     }

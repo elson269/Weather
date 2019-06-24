@@ -6,8 +6,8 @@ import com.elsonji.weather.internal.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class ConnectivityInterceptorImpl(context: Context) : ConnectivityInterceptor,
-    com.elsonji.weather.data.ConnectivityInterceptor {
+class ConnectivityInterceptorImpl(context: Context) : ConnectivityInterceptor
+    {
     private val appContext = context.applicationContext
     override fun intercept(chain: Interceptor.Chain): Response {
         if (!isOnline())

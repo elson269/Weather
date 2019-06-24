@@ -1,6 +1,6 @@
 package com.elsonji.weather.data.network
 
-import com.elsonji.weather.data.ConnectivityInterceptor
+
 import com.elsonji.weather.data.network.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
